@@ -3208,6 +3208,7 @@ public class Server {
         BlockEntity.registerBlockEntity(BlockEntity.CRAFTER, BlockEntityCrafter.class);
         BlockEntity.registerBlockEntity(BlockEntity.SHELF, BlockEntityShelf.class);
         BlockEntity.registerBlockEntity(BlockEntity.COPPER_GOLEM_STATUE, BlockEntityCopperGolemStatue.class);
+        BlockEntity.registerBlockEntity(BlockEntity.CREAKING_HEART, BlockEntityCreakingHeart.class);
 
         // Persistent container, not on vanilla
         BlockEntity.registerBlockEntity(BlockEntity.PERSISTENT_CONTAINER, PersistentDataContainerBlockEntity.class);

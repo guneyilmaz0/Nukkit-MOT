@@ -791,6 +791,19 @@ public class Blocks {
         list[PALE_OAK_SAPLING] = BlockSaplingPaleOak.class; //1261
         list[PALE_OAK_LEAVES] = BlockLeavesPaleOak.class; //1262
 
+        list[PALE_MOSS_BLOCK] = BlockMossPale.class; //1264
+        list[PALE_MOSS_CARPET] = BlockCarpetMossPale.class; //1265
+        list[PALE_HANGING_MOSS] = BlockHangingMossPale.class; //1266
+        list[CREAKING_HEART] = BlockCreakingHeart.class; //1267
+        list[RESIN_BRICKS] = BlockBricksResin.class; //1268
+        list[RESIN_BRICK_SLAB] = BlockSlabResinBrick.class; //1269
+        list[RESIN_BRICK_DOUBLE_SLAB] = BlockDoubleSlabResinBrick.class; //1270
+        list[RESIN_BRICK_STAIRS] = BlockStairsResinBrick.class; //1271
+        list[RESIN_BRICK_WALL] = BlockWallResinBrick.class; //1272
+        list[OPEN_EYEBLOSSOM] = BlockEyeblossomOpen.class; //1273
+        list[CLOSED_EYEBLOSSOM] = BlockEyeblossomClosed.class; //1274
+        list[CHISELED_RESIN_BRICKS] = BlockBricksResinChiseled.class; //1275
+        list[RESIN_BLOCK] = BlockResin.class; //1276
         list[RESIN_CLUMP] = BlockResinClump.class; //1277
         list[BUSH] = BlockBush.class; //1278
         list[WILDFLOWERS] = BlockWildflowers.class; //1279
