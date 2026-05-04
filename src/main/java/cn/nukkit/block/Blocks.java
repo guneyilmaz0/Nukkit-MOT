@@ -808,7 +808,14 @@ public class Blocks {
         list[WAXED_EXPOSED_COPPER_CHEST] = BlockChestCopperExposedWaxed.class; //1291
         list[WAXED_WEATHERED_COPPER_CHEST] = BlockChestCopperWeatheredWaxed.class; //1292
         list[WAXED_OXIDIZED_COPPER_CHEST] = BlockChestCopperOxidizedWaxed.class; //1293
-
+        list[COPPER_GOLEM_STATUE] = BlockCopperGolemStatue.class; //1294
+        list[EXPOSED_COPPER_GOLEM_STATUE] = BlockCopperGolemStatueExposed.class; //1295
+        list[WEATHERED_COPPER_GOLEM_STATUE] = BlockCopperGolemStatueWeathered.class; //1296
+        list[OXIDIZED_COPPER_GOLEM_STATUE] = BlockCopperGolemStatueOxidized.class; //1297
+        list[WAXED_COPPER_GOLEM_STATUE] = BlockCopperGolemStatueWaxed.class; //1298
+        list[WAXED_EXPOSED_COPPER_GOLEM_STATUE] = BlockCopperGolemStatueExposedWaxed.class; //1299
+        list[WAXED_WEATHERED_COPPER_GOLEM_STATUE] = BlockCopperGolemStatueWeatheredWaxed.class; //1300
+        list[WAXED_OXIDIZED_COPPER_GOLEM_STATUE] = BlockCopperGolemStatueOxidizedWaxed.class; //1301
         list[OAK_SHELF] = BlockShelfOak.class; //1302
         list[SPRUCE_SHELF] = BlockShelfSpruce.class; //1303
         list[BIRCH_SHELF] = BlockShelfBirch.class; //1304
