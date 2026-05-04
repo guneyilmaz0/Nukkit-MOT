@@ -6,24 +6,16 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Adapted from PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public class BlockCopperChain extends BlockCopperChainBase {
-
-    public BlockCopperChain() {
-        this(0);
-    }
-
-    public BlockCopperChain(int meta) {
-        super(meta);
-    }
+public class BlockBarsCopper extends BlockBarsCopperBase {
 
     @Override
     public String getName() {
-        return "Copper Chain";
+        return "Copper Bars";
     }
 
     @Override
     public int getId() {
-        return COPPER_CHAIN;
+        return COPPER_BARS;
     }
 
     @Override

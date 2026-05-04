@@ -4,28 +4,49 @@ import cn.nukkit.Player;
 import cn.nukkit.block.properties.enums.OxidizationLevel;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemBlock;
+import cn.nukkit.item.ItemTool;
+import cn.nukkit.utils.BlockColor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Copper lantern base implementation.
- * <p>
- * Adapted from Lumi (<a href="https://github.com/KoshakMineDEV/Lumi">Lumi</a>)
- * and PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
+ * Adapted from PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public abstract class BlockCopperLanternBase extends BlockLantern implements Oxidizable, Waxable {
+public abstract class BlockBarsCopperBase extends BlockThin implements Oxidizable, Waxable {
 
-    public BlockCopperLanternBase() {
-        this(0);
+    @Override
+    public double getHardness() {
+        return 5;
     }
 
-    public BlockCopperLanternBase(int meta) {
-        super(meta);
+    @Override
+    public WaterloggingType getWaterloggingType() {
+        return WaterloggingType.WHEN_PLACED_IN_WATER;
+    }
+
+    @Override
+    public double getResistance() {
+        return 6;
+    }
+
+    @Override
+    public int getToolType() {
+        return ItemTool.TYPE_PICKAXE;
+    }
+
+    @Override
+    public int getToolTier() {
+        return ItemTool.TIER_WOODEN;
     }
 
     @Override
     public Item toItem() {
         return new ItemBlock(Block.get(this.getId()), 0, 1);
+    }
+
+    @Override
+    public BlockColor getColor() {
+        return BlockColor.ADOBE_BLOCK_COLOR;
     }
 
     @Override
@@ -35,8 +56,7 @@ public abstract class BlockCopperLanternBase extends BlockLantern implements Oxi
 
     @Override
     public int onUpdate(int type) {
-        int update = Oxidizable.super.onUpdate(type);
-        return update != 0 ? update : super.onUpdate(type);
+        return Oxidizable.super.onUpdate(type);
     }
 
     @Override
@@ -51,7 +71,7 @@ public abstract class BlockCopperLanternBase extends BlockLantern implements Oxi
 
     @Override
     public Block getStateWithOxidizationLevel(@NotNull OxidizationLevel oxidizationLevel) {
-        return Block.get(this.getCopperId(this.isWaxed(), oxidizationLevel), this.getDamage());
+        return Block.get(this.getCopperId(this.isWaxed(), oxidizationLevel));
     }
 
     @Override
@@ -59,7 +79,7 @@ public abstract class BlockCopperLanternBase extends BlockLantern implements Oxi
         if (this.getOxidizationLevel().equals(oxidizationLevel)) {
             return true;
         }
-        return this.getValidLevel().setBlock(this, Block.get(this.getCopperId(this.isWaxed(), oxidizationLevel), this.getDamage()));
+        return this.getValidLevel().setBlock(this, Block.get(this.getCopperId(this.isWaxed(), oxidizationLevel)));
     }
 
     @Override
@@ -67,7 +87,7 @@ public abstract class BlockCopperLanternBase extends BlockLantern implements Oxi
         if (this.isWaxed() == waxed) {
             return true;
         }
-        return this.getValidLevel().setBlock(this, Block.get(this.getCopperId(waxed, this.getOxidizationLevel()), this.getDamage()));
+        return this.getValidLevel().setBlock(this, Block.get(this.getCopperId(waxed, this.getOxidizationLevel())));
     }
 
     @Override
@@ -80,10 +100,10 @@ public abstract class BlockCopperLanternBase extends BlockLantern implements Oxi
             return this.getId();
         }
         return switch (oxidizationLevel) {
-            case UNAFFECTED -> waxed ? WAXED_COPPER_LANTERN : COPPER_LANTERN;
-            case EXPOSED -> waxed ? WAXED_EXPOSED_COPPER_LANTERN : EXPOSED_COPPER_LANTERN;
-            case WEATHERED -> waxed ? WAXED_WEATHERED_COPPER_LANTERN : WEATHERED_COPPER_LANTERN;
-            case OXIDIZED -> waxed ? WAXED_OXIDIZED_COPPER_LANTERN : OXIDIZED_COPPER_LANTERN;
+            case UNAFFECTED -> waxed ? WAXED_COPPER_BARS : COPPER_BARS;
+            case EXPOSED -> waxed ? WAXED_EXPOSED_COPPER_BARS : EXPOSED_COPPER_BARS;
+            case WEATHERED -> waxed ? WAXED_WEATHERED_COPPER_BARS : WEATHERED_COPPER_BARS;
+            case OXIDIZED -> waxed ? WAXED_OXIDIZED_COPPER_BARS : OXIDIZED_COPPER_BARS;
         };
     }
 }

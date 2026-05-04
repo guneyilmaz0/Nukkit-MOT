@@ -12,26 +12,14 @@ import org.jetbrains.annotations.Nullable;
 /**
  * Adapted from PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public abstract class BlockCopperBarsBase extends BlockThin implements Oxidizable, Waxable {
+public abstract class BlockChainCopperBase extends BlockChain implements Oxidizable, Waxable {
 
-    @Override
-    public double getHardness() {
-        return 5;
+    public BlockChainCopperBase() {
+        this(0);
     }
 
-    @Override
-    public WaterloggingType getWaterloggingType() {
-        return WaterloggingType.WHEN_PLACED_IN_WATER;
-    }
-
-    @Override
-    public double getResistance() {
-        return 6;
-    }
-
-    @Override
-    public int getToolType() {
-        return ItemTool.TYPE_PICKAXE;
+    public BlockChainCopperBase(int meta) {
+        super(meta);
     }
 
     @Override
@@ -47,11 +35,6 @@ public abstract class BlockCopperBarsBase extends BlockThin implements Oxidizabl
     @Override
     public BlockColor getColor() {
         return BlockColor.ADOBE_BLOCK_COLOR;
-    }
-
-    @Override
-    public boolean canHarvestWithHand() {
-        return false;
     }
 
     @Override
@@ -71,7 +54,7 @@ public abstract class BlockCopperBarsBase extends BlockThin implements Oxidizabl
 
     @Override
     public Block getStateWithOxidizationLevel(@NotNull OxidizationLevel oxidizationLevel) {
-        return Block.get(this.getCopperId(this.isWaxed(), oxidizationLevel));
+        return Block.get(this.getCopperId(this.isWaxed(), oxidizationLevel), this.getDamage());
     }
 
     @Override
@@ -79,7 +62,7 @@ public abstract class BlockCopperBarsBase extends BlockThin implements Oxidizabl
         if (this.getOxidizationLevel().equals(oxidizationLevel)) {
             return true;
         }
-        return this.getValidLevel().setBlock(this, Block.get(this.getCopperId(this.isWaxed(), oxidizationLevel)));
+        return this.getValidLevel().setBlock(this, Block.get(this.getCopperId(this.isWaxed(), oxidizationLevel), this.getDamage()));
     }
 
     @Override
@@ -87,7 +70,7 @@ public abstract class BlockCopperBarsBase extends BlockThin implements Oxidizabl
         if (this.isWaxed() == waxed) {
             return true;
         }
-        return this.getValidLevel().setBlock(this, Block.get(this.getCopperId(waxed, this.getOxidizationLevel())));
+        return this.getValidLevel().setBlock(this, Block.get(this.getCopperId(waxed, this.getOxidizationLevel()), this.getDamage()));
     }
 
     @Override
@@ -100,10 +83,10 @@ public abstract class BlockCopperBarsBase extends BlockThin implements Oxidizabl
             return this.getId();
         }
         return switch (oxidizationLevel) {
-            case UNAFFECTED -> waxed ? WAXED_COPPER_BARS : COPPER_BARS;
-            case EXPOSED -> waxed ? WAXED_EXPOSED_COPPER_BARS : EXPOSED_COPPER_BARS;
-            case WEATHERED -> waxed ? WAXED_WEATHERED_COPPER_BARS : WEATHERED_COPPER_BARS;
-            case OXIDIZED -> waxed ? WAXED_OXIDIZED_COPPER_BARS : OXIDIZED_COPPER_BARS;
+            case UNAFFECTED -> waxed ? WAXED_COPPER_CHAIN : COPPER_CHAIN;
+            case EXPOSED -> waxed ? WAXED_EXPOSED_COPPER_CHAIN : EXPOSED_COPPER_CHAIN;
+            case WEATHERED -> waxed ? WAXED_WEATHERED_COPPER_CHAIN : WEATHERED_COPPER_CHAIN;
+            case OXIDIZED -> waxed ? WAXED_OXIDIZED_COPPER_CHAIN : OXIDIZED_COPPER_CHAIN;
         };
     }
 }

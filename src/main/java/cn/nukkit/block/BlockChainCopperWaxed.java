@@ -6,21 +6,29 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Adapted from PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public class BlockCopperBarsExposedWaxed extends BlockCopperBarsBase {
+public class BlockChainCopperWaxed extends BlockChainCopper {
+
+    public BlockChainCopperWaxed() {
+        this(0);
+    }
+
+    public BlockChainCopperWaxed(int meta) {
+        super(meta);
+    }
 
     @Override
     public String getName() {
-        return "Waxed Exposed Copper Bars";
+        return "Waxed Copper Chain";
     }
 
     @Override
     public int getId() {
-        return WAXED_EXPOSED_COPPER_BARS;
+        return WAXED_COPPER_CHAIN;
     }
 
     @Override
     public @NotNull OxidizationLevel getOxidizationLevel() {
-        return OxidizationLevel.EXPOSED;
+        return OxidizationLevel.UNAFFECTED;
     }
 
     @Override

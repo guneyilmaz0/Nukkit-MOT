@@ -4,13 +4,13 @@ package cn.nukkit.block;
  * Adapted from Lumi (<a href="https://github.com/KoshakMineDEV/Lumi">Lumi</a>)
  * and PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public class BlockCopperLanternWaxed extends BlockCopperLantern {
+public class BlockLanternCopperWaxed extends BlockLanternCopper {
 
-    public BlockCopperLanternWaxed() {
+    public BlockLanternCopperWaxed() {
         this(0);
     }
 
-    public BlockCopperLanternWaxed(int meta) {
+    public BlockLanternCopperWaxed(int meta) {
         super(meta);
     }
 

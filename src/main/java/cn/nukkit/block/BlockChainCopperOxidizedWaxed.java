@@ -6,13 +6,13 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Adapted from PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public class BlockCopperChainOxidizedWaxed extends BlockCopperChain {
+public class BlockChainCopperOxidizedWaxed extends BlockChainCopper {
 
-    public BlockCopperChainOxidizedWaxed() {
+    public BlockChainCopperOxidizedWaxed() {
         this(0);
     }
 
-    public BlockCopperChainOxidizedWaxed(int meta) {
+    public BlockChainCopperOxidizedWaxed(int meta) {
         super(meta);
     }
 

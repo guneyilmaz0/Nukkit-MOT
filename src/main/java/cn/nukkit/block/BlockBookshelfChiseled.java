@@ -29,18 +29,18 @@ import java.util.Map;
  * <p>
  * Adapted from Lumi and PowerNukkitX.
  */
-public class BlockChiseledBookshelf extends BlockSolidMeta implements BlockEntityHolder<BlockEntityChiseledBookshelf>, Faceable, BlockPropertiesHelper {
+public class BlockBookshelfChiseled extends BlockSolidMeta implements BlockEntityHolder<BlockEntityChiseledBookshelf>, Faceable, BlockPropertiesHelper {
 
     private static final int BOOKS_MASK = 0b0011_1111;
     private static final int DIRECTION_MASK = 0b1100_0000;
     private static final IntBlockProperty BOOKS_STORED = new IntBlockProperty("books_stored", false, BOOKS_MASK);
     private static final BlockProperties PROPERTIES = new BlockProperties(BOOKS_STORED, VanillaProperties.DIRECTION);
 
-    public BlockChiseledBookshelf() {
+    public BlockBookshelfChiseled() {
         this(0);
     }
 
-    public BlockChiseledBookshelf(int meta) {
+    public BlockBookshelfChiseled(int meta) {
         super(meta);
     }
 

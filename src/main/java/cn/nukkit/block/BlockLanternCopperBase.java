@@ -4,27 +4,23 @@ import cn.nukkit.Player;
 import cn.nukkit.block.properties.enums.OxidizationLevel;
 import cn.nukkit.item.Item;
 import cn.nukkit.item.ItemBlock;
-import cn.nukkit.item.ItemTool;
-import cn.nukkit.utils.BlockColor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Adapted from PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
+ * Copper lantern base implementation.
+ * <p>
+ * Adapted from Lumi (<a href="https://github.com/KoshakMineDEV/Lumi">Lumi</a>)
+ * and PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public abstract class BlockCopperChainBase extends BlockChain implements Oxidizable, Waxable {
+public abstract class BlockLanternCopperBase extends BlockLantern implements Oxidizable, Waxable {
 
-    public BlockCopperChainBase() {
+    public BlockLanternCopperBase() {
         this(0);
     }
 
-    public BlockCopperChainBase(int meta) {
+    public BlockLanternCopperBase(int meta) {
         super(meta);
-    }
-
-    @Override
-    public int getToolTier() {
-        return ItemTool.TIER_WOODEN;
     }
 
     @Override
@@ -33,13 +29,14 @@ public abstract class BlockCopperChainBase extends BlockChain implements Oxidiza
     }
 
     @Override
-    public BlockColor getColor() {
-        return BlockColor.ADOBE_BLOCK_COLOR;
+    public boolean canHarvestWithHand() {
+        return false;
     }
 
     @Override
     public int onUpdate(int type) {
-        return Oxidizable.super.onUpdate(type);
+        int update = Oxidizable.super.onUpdate(type);
+        return update != 0 ? update : super.onUpdate(type);
     }
 
     @Override
@@ -83,10 +80,10 @@ public abstract class BlockCopperChainBase extends BlockChain implements Oxidiza
             return this.getId();
         }
         return switch (oxidizationLevel) {
-            case UNAFFECTED -> waxed ? WAXED_COPPER_CHAIN : COPPER_CHAIN;
-            case EXPOSED -> waxed ? WAXED_EXPOSED_COPPER_CHAIN : EXPOSED_COPPER_CHAIN;
-            case WEATHERED -> waxed ? WAXED_WEATHERED_COPPER_CHAIN : WEATHERED_COPPER_CHAIN;
-            case OXIDIZED -> waxed ? WAXED_OXIDIZED_COPPER_CHAIN : OXIDIZED_COPPER_CHAIN;
+            case UNAFFECTED -> waxed ? WAXED_COPPER_LANTERN : COPPER_LANTERN;
+            case EXPOSED -> waxed ? WAXED_EXPOSED_COPPER_LANTERN : EXPOSED_COPPER_LANTERN;
+            case WEATHERED -> waxed ? WAXED_WEATHERED_COPPER_LANTERN : WEATHERED_COPPER_LANTERN;
+            case OXIDIZED -> waxed ? WAXED_OXIDIZED_COPPER_LANTERN : OXIDIZED_COPPER_LANTERN;
         };
     }
 }

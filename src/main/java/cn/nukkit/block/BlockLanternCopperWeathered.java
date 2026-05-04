@@ -7,13 +7,13 @@ import org.jetbrains.annotations.NotNull;
  * Adapted from Lumi (<a href="https://github.com/KoshakMineDEV/Lumi">Lumi</a>)
  * and PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public class BlockCopperLanternWeathered extends BlockCopperLantern {
+public class BlockLanternCopperWeathered extends BlockLanternCopper {
 
-    public BlockCopperLanternWeathered() {
+    public BlockLanternCopperWeathered() {
         this(0);
     }
 
-    public BlockCopperLanternWeathered(int meta) {
+    public BlockLanternCopperWeathered(int meta) {
         super(meta);
     }
 

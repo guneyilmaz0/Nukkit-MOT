@@ -3,13 +3,13 @@ package cn.nukkit.block;
 /**
  * Adapted from PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public class BlockCopperTorch extends BlockTorch {
+public class BlockTorchCopper extends BlockTorch {
 
-    public BlockCopperTorch() {
+    public BlockTorchCopper() {
         this(0);
     }
 
-    public BlockCopperTorch(int meta) {
+    public BlockTorchCopper(int meta) {
         super(meta);
     }
 

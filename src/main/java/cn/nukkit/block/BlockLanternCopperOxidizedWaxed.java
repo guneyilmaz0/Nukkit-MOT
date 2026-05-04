@@ -7,28 +7,33 @@ import org.jetbrains.annotations.NotNull;
  * Adapted from Lumi (<a href="https://github.com/KoshakMineDEV/Lumi">Lumi</a>)
  * and PowerNukkitX (<a href="https://github.com/PowerNukkitX/PowerNukkitX">PowerNukkitX</a>).
  */
-public class BlockCopperLantern extends BlockCopperLanternBase {
+public class BlockLanternCopperOxidizedWaxed extends BlockLanternCopper {
 
-    public BlockCopperLantern() {
+    public BlockLanternCopperOxidizedWaxed() {
         this(0);
     }
 
-    public BlockCopperLantern(int meta) {
+    public BlockLanternCopperOxidizedWaxed(int meta) {
         super(meta);
     }
 
     @Override
     public String getName() {
-        return "Copper Lantern";
+        return "Waxed Oxidized Copper Lantern";
     }
 
     @Override
     public int getId() {
-        return COPPER_LANTERN;
+        return WAXED_OXIDIZED_COPPER_LANTERN;
     }
 
     @Override
     public @NotNull OxidizationLevel getOxidizationLevel() {
-        return OxidizationLevel.UNAFFECTED;
+        return OxidizationLevel.OXIDIZED;
+    }
+
+    @Override
+    public boolean isWaxed() {
+        return true;
     }
 }
